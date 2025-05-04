@@ -1,0 +1,105 @@
+[
+  {
+    "model": "courses.user",
+    "pk": 1,
+    "fields": {
+      "username": "prof_ivanov",
+      "first_name": "Иван",
+      "last_name": "Иванов",
+      "email": "ivanov@university.edu",
+      "role": "teacher"
+    }
+  },
+  {
+    "model": "courses.user",
+    "pk": 2,
+    "fields": {
+      "username": "student_petrov",
+      "first_name": "Петр",
+      "last_name": "Петров",
+      "email": "petrov@university.edu",
+      "role": "student"
+    }
+  },
+  {
+    "model": "courses.user",
+    "pk": 3,
+    "fields": {
+      "username": "auditor_sidorova",
+      "first_name": "Мария",
+      "last_name": "Сидорова",
+      "email": "sidorova@example.com",
+      "role": "auditor"
+    }
+  },
+  {
+    "model": "courses.group",
+    "pk": 1,
+    "fields": {
+      "name": "Группа CS-101"
+    }
+  },
+  {
+    "model": "courses.year",
+    "pk": 1,
+    "fields": {
+      "name": "2023-2024",
+      "start_date": "2023-09-01",
+      "end_date": "2024-06-30"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+      "title": "Введение в Python",
+      "description": "Базовый курс по программированию на Python",
+      "creation_date": "2023-09-10T08:00:00Z",
+      "is_active": true,
+      "year_id": 1,
+      "teacher_id": 1,
+      "group_id": 1
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 2,
+    "fields": {
+      "title": "Продвинутый Django",
+      "description": "Углубленное изучение Django Framework",
+      "creation_date": "2023-09-15T10:00:00Z",
+      "is_active": true,
+      "year_id": 1,
+      "teacher_id": 1,
+      "group_id": 1
+    }
+  },
+  {
+    "model": "courses.coursematerial",
+    "pk": 1,
+    "fields": {
+      "course": 1,
+      "material_type": "video",
+      "content": "Введение в Python: основы синтаксиса",
+      "creation_date": "2023-09-12T09:00:00Z"
+    }
+  },
+  {
+    "model": "courses.courserequest",
+    "pk": 1,
+    "fields": {
+      "course": 1,
+      "auditor_id": 3,
+      "status": "pending"
+    }
+  },
+  {
+    "model": "courses.courseenrollment",
+    "pk": 1,
+    "fields": {
+      "course": 1,
+      "student_id": 2,
+      "enrollment_date": "2023-09-11T14:30:00Z"
+    }
+  }
+]
