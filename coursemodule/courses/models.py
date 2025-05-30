@@ -3,7 +3,6 @@ from django.core.validators import MinValueValidator
 from django.contrib.auth.models import AbstractUser
 
 
-"""эти три таблицы (user, group, year) были не по моей части, поэтому я добавил их как заглушку, без них не работало"""
 class User(AbstractUser):
     ROLES = [
         ('teacher', 'Преподаватель'),

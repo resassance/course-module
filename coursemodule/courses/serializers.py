@@ -4,7 +4,10 @@ from .models import Course, CourseMaterial, CourseRequest, CourseEnrollment
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = '__all__'
+        fields = [
+            'course_id', 'title', 'description', 'creation_date', 'is_active',
+            'year_id', 'teacher_id', 'group_id'
+        ]
         read_only_fields = ('creation_date',)
 
 class CourseLastSerializer(serializers.ModelSerializer):
@@ -15,19 +18,21 @@ class CourseLastSerializer(serializers.ModelSerializer):
 class CourseMaterialSerializer(serializers.ModelSerializer):
     class Meta:
         model = CourseMaterial
-        fields = '__all__'
+        fields = [
+            'id', 'course', 'material_type', 'content', 'creation_date', 'material_file'
+        ]
 
 class CourseEnrollmentSerializer(serializers.ModelSerializer):
     student_name = serializers.CharField(source='student_id.get_full_name', read_only=True)
-    
+
     class Meta:
         model = CourseEnrollment
-        fields = ['id', 'student_id', 'student_name', 'enrollment_date']
+        fields = ['id', 'course', 'student_id', 'student_name', 'enrollment_date']
         read_only_fields = ('enrollment_date',)
 
 class CourseRequestSerializer(serializers.ModelSerializer):
     auditor_name = serializers.CharField(source='auditor_id.get_full_name', read_only=True)
-    
+
     class Meta:
         model = CourseRequest
         fields = ['id', 'course', 'auditor_id', 'auditor_name', 'status']
